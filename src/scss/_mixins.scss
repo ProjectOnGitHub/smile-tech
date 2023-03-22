@@ -18,5 +18,11 @@
   cursor: pointer;
   white-space: nowrap;
   text-decoration: none;
-  transition: text-decoration 1s ease;
+  opacity: 1;
+  transition: opacity 1s ease;
+  color: $color-blue;
+  font-weight: 600;
+  &:hover {
+    opacity: 0.8;
+  }
 }
