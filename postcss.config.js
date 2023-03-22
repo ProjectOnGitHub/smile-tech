@@ -3,7 +3,9 @@ const cssnano = require('cssnano');
 
 module.exports = {
   plugins: [
-    autoprefixer,
+    autoprefixer({
+      browsers: ['ie >= 8', 'last 20 version'],
+    }),
     cssnano({ preset: 'default' }),
   ],
 };
