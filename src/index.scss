@@ -188,9 +188,11 @@ html {
         box-sizing: border-box;
         padding: 23px;
         border-top: 1px solid $color-blue;
-        gap: 14px;
         @media screen and (max-width: $tablet) {
           padding: 20px 0;
+        }
+        &__active {
+          row-gap: 14px;
         }
         &:last-child {
           border-bottom: 1px solid $color-blue;
@@ -203,6 +205,7 @@ html {
       margin: 0;
       font-weight: bold;
       color: $color-blue;
+      cursor: pointer;
     }
     &__sublist {
       @include gridable(100%);
@@ -227,12 +230,45 @@ html {
     }
     &__text {
       grid-area: text;
+      box-sizing: border-box;
       max-width: 1106px;
+      max-height: 0;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.5s linear;
+
+      &_visible {
+        max-height: 1000px;
+        padding-top: 14px;
+        visibility: visible;
+        opacity: 1;
+        @media screen and (max-width: $smartphone) {
+          padding-top: 20px;
+        }
+      }
     }
-    &__icon {
+    &__button {
+      @include gridable(33px);
       grid-area: icon;
-      width: 33px;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
       height: 33px;
+      padding: 0;
+      background-image: url(images/arrow-icon.png);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transform: scale(1, 1);
+      transition: 0.5s linear;
+      @media screen and (max-width: $smartphone) {
+        width: 30px;
+        height: 30px;
+        transform: scale(1, -1);
+      }
+      &_rotate {
+        transform: scale(1, -1);
+      }
     }
   }
   &__subtitle {
