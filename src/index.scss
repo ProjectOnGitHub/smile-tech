@@ -140,7 +140,9 @@ html {
       color: $color-white;
       background-color: $color-blue;
       border-radius: 10px;
+      cursor: pointer;
       gap: 18px;
+      transition: 0.5s linear;
       @media screen and (max-width: $smartphone) {
         width: 158px;
         height: 115px;
@@ -151,12 +153,16 @@ html {
       &_active {
         color: $color-black;
         background-color: $color-gray;
+        & .questions__icon {
+          fill: $color-black;
+        }
       }
     }
     &-text {
       align-self: end;
       margin: 0;
       text-align: left;
+      pointer-events: none;
       @media screen and (max-width: $smartphone) {
         font-size: 16px;
       }
@@ -165,14 +171,18 @@ html {
   &__icon {
     width: 50px;
     height: 50px;
+    pointer-events: none;
+    fill: $color-white;
     @media screen and (max-width: $smartphone) {
       width: 40px;
       height: 40px;
     }
   }
   &-info {
+    display: none;
     padding-top: 130px;
     padding-bottom: 65px;
+    visibility: hidden;
     @media screen and (max-width: $tablet) {
       padding-top: 80px;
     }
@@ -180,17 +190,21 @@ html {
       padding-top: 40px;
       padding-bottom: 40px;
     }
+    &_active {
+      display: block;
+      visibility: visible;
+    }
     &__list {
       @include unmarkedList;
       &-item {
         @include gridable(100%);
-        column-gap: 15px;
         grid-template-areas:
           'title icon'
           'text .';
         justify-content: space-between;
         box-sizing: border-box;
         padding: 23px;
+        column-gap: 15px;
         border-top: 1px solid $color-blue;
         @media screen and (max-width: $tablet) {
           padding: 20px 0;
@@ -206,11 +220,11 @@ html {
     &__title {
       grid-area: title;
       align-self: center;
+      width: auto;
       margin: 0;
       font-weight: bold;
       color: $color-blue;
       cursor: pointer;
-      width: auto;
     }
     &__sublist {
       @include gridable(100%);
@@ -257,15 +271,15 @@ html {
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
-      background-size: contain;
       height: 33px;
       padding: 0;
       background-image: url(images/arrow-icon.png);
+      background-size: contain;
 
       border: none;
       border-radius: 50%;
-      cursor: pointer;
       transform: scale(1, 1);
+      cursor: pointer;
       transition: 0.5s linear;
       @media screen and (max-width: $smartphone) {
         width: 30px;
@@ -316,15 +330,15 @@ html {
   width: 100%;
   height: 100%;
   &-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
-    overflow: hidden;
     width: 209px;
+    overflow: hidden;
+    font-size: 18px;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
     @media screen and (max-width: $smartphone) {
       width: 158px;
     }
