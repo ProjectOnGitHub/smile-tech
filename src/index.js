@@ -1,4 +1,17 @@
+import 'swiper/css/bundle';
 import './index.css';
+import Swiper from 'swiper/bundle';
+
+// import styles bundle
+
+const swiper = new Swiper('.mySwiper', {
+  slidesPerView: 'auto',
+  spaceBetween: 13,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
 
 function requireAll(icon) {
   icon.keys().forEach(icon);

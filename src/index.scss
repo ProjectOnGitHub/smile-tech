@@ -129,7 +129,6 @@ html {
     @include gridable(100%);
     @include unmarkedList;
     grid-template-columns: repeat(6, 1fr);
-    gap: 13px;
     &-item {
       @include gridable(100%);
       align-content: space-between;
@@ -157,6 +156,10 @@ html {
     &-text {
       align-self: end;
       margin: 0;
+      text-align: left;
+      @media screen and (max-width: $smartphone) {
+        font-size: 16px;
+      }
     }
   }
   &__icon {
@@ -206,7 +209,7 @@ html {
       font-weight: bold;
       color: $color-blue;
       cursor: pointer;
-      width: max-content;
+      width: auto;
     }
     &__sublist {
       @include gridable(100%);
@@ -306,5 +309,23 @@ html {
   }
   .slider {
     overflow: hidden;
+  }
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+  &-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 209px;
+    @media screen and (max-width: $smartphone) {
+      width: 158px;
+    }
   }
 }
