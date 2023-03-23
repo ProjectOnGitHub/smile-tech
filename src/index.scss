@@ -206,6 +206,7 @@ html {
       font-weight: bold;
       color: $color-blue;
       cursor: pointer;
+      width: max-content;
     }
     &__sublist {
       @include gridable(100%);
