@@ -35,21 +35,25 @@ list.addEventListener('click', toggleQuestions);
 const allTabs = document.querySelectorAll('.questions__list-item');
 const tabsContent = document.querySelectorAll('.questions-info');
 const tabsList = document.querySelector('.questions__list');
+
+function removeActiveSelector(array, selector) {
+  array.forEach((item) => item.classList.remove(selector));
+}
+function showCurrentAnswer() {
+  let currentIndex;
+  allTabs.forEach((tab, i) => (tab.classList.contains('questions__list-item_active') ? (currentIndex = i) : ''));
+  removeActiveSelector(tabsContent, 'questions-info_active');
+  tabsContent[currentIndex].classList.add('questions-info_active');
+  list = document.querySelector('.questions-info_active');
+  list.addEventListener('click', toggleQuestions);
+}
+
 function changeActiveTab(e) {
   if (e.target.classList.contains('questions__list-item')) {
-    allTabs.forEach((tab) => tab.classList.remove('questions__list-item_active'));
+    removeActiveSelector(allTabs, 'questions__list-item_active');
   }
   e.target.classList.add('questions__list-item_active');
   showCurrentAnswer();
 }
 
-function showCurrentAnswer() {
-  let currentIndex;
-  allTabs.forEach((tab, i) => (tab.classList.contains('questions__list-item_active') ? (currentIndex = i) : ''));
-  tabsContent.forEach((tab) => tab.classList.remove('questions-info_active'));
-  tabsContent[currentIndex].classList.add('questions-info_active');
-  list = document.querySelector('.questions-info_active');
-  console.log(list);
-  list.addEventListener('click', toggleQuestions);
-}
 tabsList.addEventListener('click', changeActiveTab);
