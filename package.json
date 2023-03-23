@@ -45,7 +45,7 @@
     "swiper": "^9.1.1"
   },
   "browserslist": [
-    "last 5 version",
+    "last 10 version",
     "> 1%",
     "not dead"
   ]

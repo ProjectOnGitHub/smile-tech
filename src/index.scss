@@ -141,8 +141,8 @@ html {
       background-color: $color-blue;
       border-radius: 10px;
       cursor: pointer;
-      gap: 18px;
       transition: 0.5s linear;
+      gap: 18px;
       @media screen and (max-width: $smartphone) {
         width: 158px;
         height: 115px;
@@ -178,11 +178,17 @@ html {
       height: 40px;
     }
   }
+  &__container {
+    @include gridable(100%);
+    grid-template-areas: info;
+  }
   &-info {
-    display: none;
+    grid-area: info;
     padding-top: 130px;
     padding-bottom: 65px;
     visibility: hidden;
+    opacity: 0;
+    transition: 0.5s linear;
     @media screen and (max-width: $tablet) {
       padding-top: 80px;
     }
@@ -191,7 +197,7 @@ html {
       padding-bottom: 40px;
     }
     &_active {
-      display: block;
+      opacity: 1;
       visibility: visible;
     }
     &__list {
